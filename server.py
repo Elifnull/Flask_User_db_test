@@ -6,8 +6,8 @@ app = Flask(__name__)
 @app.route('/')
 @app.route('/Read(all)')
 def index():
-    all_users = User.get_all()
-    return render_template("index.html", all_users)
+    allusers = User.get_all()
+    return render_template("index.html", all_users= allusers)
 
 @app.route('/create')
 def user_creation():

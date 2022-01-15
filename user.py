@@ -15,7 +15,7 @@ class User:
     def get_all(cls):
         query = "SELECT * FROM users;"
             # make sure to call the connectToMySQL function with the schema you are targeting.
-        results = connectToMySQL('first_flask').query_db(query)
+        results = connectToMySQL('users_db').query_db(query)
             # Create an empty list to append our instances of users
         users = []
             # Iterate over the db results and create instances of users with cls.
