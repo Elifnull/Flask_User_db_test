@@ -6,9 +6,14 @@ app = Flask(__name__)
 @app.route('/')
 @app.route('/Read(all)')
 def index():
-    return render_template("index.html")
+    all_users = User.get_all()
+    return render_template("index.html", all_users)
 
-@app.route('/create', methods=['POST'])
+@app.route('/create')
+def user_creation():
+    return render_template("ucreate.html")
+
+@app.route('/created', methods=['POST'])
 def create_user():
     # creating the data to be passed into the class method
     # data will be passed into .save() and query will update db
