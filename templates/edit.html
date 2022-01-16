@@ -12,22 +12,24 @@
     </head>
     <body>
         <div class="col-6 p-5 mx-auto">
-            <h2 class="text-dark">Edit {{user_data.first_name}}}</h2>
+            <h2 class="text-dark">Edit {{user_data.first_name}}</h2>
             <form class="row g-3 bg-dark text-warning p-3 rounded" action="/update" method="POST" >
                 <div class="col-md-6">
-                    <label class="form-label" for="fname" value="{{user_data.first_name}}">First Name:</label>
-                    <input class="form-control" type="text" name="fname">
+                    <input type="hidden" value="{{user_data.id}}" name="id">
+                    <label class="form-label" for="fname">First Name:</label>
+                    <input class="form-control" type="text" name="fname" value="{{user_data.first_name}}">
                 </div>
                 <div class="col-md-6">
-                    <label class="form-label" for="lname" value="{{user_data.last_name}}">Last Name:</label>
-                    <input class="form-control" type="text" name="lname">
+                    <label class="form-label" for="lname" >Last Name:</label>
+                    <input class="form-control" type="text" name="lname" value="{{user_data.last_name}}">
                 </div>
                 <div class="col-12">
                     <label class="form-label" for="email">Email:</label>
-                    <input class="form-control" type="text" name="email"value="{{user_data.email}}">
+                    <input class="form-control" type="text" name="email" value="{{user_data.email}}">
                 </div>
                 <div class="col-12">
                     <button type="submit" class="btn btn-warning text-dark">Update User</button>
+                    <a type='button'class='btn btn-danger' href="/delete/user/{{user_data.id}}">Delete User</a>
                 </div>
             </form>
         </div>

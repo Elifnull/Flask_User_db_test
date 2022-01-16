@@ -17,6 +17,8 @@
             <p>Email: {{user_data.email}}</p>
             <p>Created: {{user_data.created_at}}</p>
             <p>Last Updated: {{user_data.updated_at}}</p>
+            <a type='button'class='btn btn-danger' href="/delete/user/{{user_data.id}}">Delete User</a>
+            <a type='button' class='btn btn-warning' href="/edit/user/{{user_data.id}}">Edit User</a>
         </div>
         <!-- Optional JavaScript; choose one of the two! -->
         <!-- Option 1: Bootstrap Bundle with Popper -->
