@@ -25,5 +25,20 @@ def create_user():
     User.save(data)
     return redirect('/Read(all)')
 
+@app.route('/show/user/<int:id>')
+def show_user(id):
+    data = {
+        "id": id
+    }
+    single_user= User.get_single(data)
+    return render_template("show.html", user_data=single_user)
+
+@app.route('/edit/user/<int:id>')
+def edit_user(id):
+    data ={ "id": id
+    }
+    User.get_single(data)
+    return render_template("edit.html", user=)
+
 if __name__ == "__main__":
     app.run(debug=True)

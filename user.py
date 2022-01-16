@@ -20,6 +20,8 @@ class User:
         users = []
             # Iterate over the db results and create instances of users with cls.
         for user in results:
+            print (cls(user))
+            print (user)
             users.append( cls(user) )
         return users
     @classmethod
@@ -27,3 +29,15 @@ class User:
         query = "INSERT INTO users ( first_name , last_name , email , created_at, updated_at ) VALUES ( %(fname)s , %(lname)s , %(email)s , NOW() , NOW() );"
         # data is a dictionary that will be passed into the save method from server.py
         return connectToMySQL('users_db').query_db( query, data )
+    @classmethod
+    def get_single(cls, data):
+        query = "SELECT * FROM users WHERE id=%(id)s;"
+        result = connectToMySQL('users_db').query_db(query,data)
+        print(result)
+        print((result[0]))
+        return cls(result[0])
+    @classmethod
+    def update_user(cls, data):
+        query ="UPDATE users SET first_name=%(fname)s, last_name=%(lname)s, email=%(email)s, updated_at=NOW() WHERE id=%(id)s"
+        result = connectToMySQL('users_db').query_db(query,data)
+        return result
